@@ -12,7 +12,7 @@ Display Live Cricket Score on your Wordpress Site.
 
 == Description ==
 
-Simple Plugon to Display Live Cricket score on your Wordpress Site.
+Simple Plugin to Display Live Cricket score on your WordPress Site.
 
 Just insert the Shortcode - Done
 
@@ -32,20 +32,20 @@ PS: You need API Key to Activate this Plugin
 1. Go to Plugins > Add New Plugin*, search for **San Cricket** and click "*Install now*"
 2. Alternative method, download the plugin and Upload the San Cricket folder to the /wp-content/plugins/directory
 3. Activate the plugin
-4. Now Go to Plugin settings page under WordPress Settings page.
-5. And Enter your API Key and Start Displaying the Live Cricket Score
-6. That's all
+4. Now go to WordPress Dashboard -> Settings -> Plugin settings page.
+5. Enter your API Key and Start Displaying the Live Cricket Score
+6. That's it
 
 == Frequently Asked Questions ==
 
-= Where I Get the Plugin API Key? =
+= Where can I Get the Plugin API Key? =
 
 Just Fill the Form & Get API Key - Form Link Attached in the Plugin Option Panel
 
 
 = Score data are Accurate and Real-time? =
 
-Yes 100% Accurate - Our API was cached 1mins reload the page Every 1mins to View Live data.
+Yes 100% Accurate - Our API is cached for 1min. Reload the page Every 1min to View Live data.
 
 
 == Screenshots ==
