@@ -6,7 +6,7 @@
 <h2>Live Cricket Score 🏏</h2>
 <strong><p>✅ Get API &rArr; <a rel="nofollow noopener noreferrer" href="https://forms.gle/3j4kGZ2bcLaC7NM88" target="_blank">Click Here</a></p></strong>
 <strong><p>✅ Live Cricket Score Plugin Shortcode &rArr; <code>[sancri]</code></p></strong>
-<strong><p>✅ Our API Cached for 1 Mins  - Refresh the Page Every 1 min to View Realtime Score</p></strong>
+<strong><p>✅ Our API is cached for 1min. Reload the page Every 1min to View Live data.</p></strong>
 <strong><p>✅ Github - <a rel="nofollow noopener noreferrer" href="https://github.com/mskian/san-cricket" target="_blank">Click Here</a></P></strong>
 <br>
 <form method="post" action="options.php">

@@ -113,23 +113,22 @@ function display_apii_response() {
   $url = $base_url.$api_path.$site_url;
   $response = wp_remote_get($url);
   global $body;
-  $body = $response['body'];
-  $body = stripslashes($body);
+  $body = json_decode( $response['body'], true );
 }
 add_action( 'init', 'display_apii_response' );
 
 ## Shortcode to Display Score
 function wpb_sancric_shortcode(){
     global $body;
-    $message = json_decode($body,true);
-    $score_title = isset($message["livescore"]["title"]) ? $message["livescore"]["title"] : 'Match data Will Updated Soon';
-    $score_Update = isset($message["livescore"]["update"]) ? $message["livescore"]["update"] : '';
-    $score_data = isset($message["livescore"]["current"]) ? $message["livescore"]["current"] : '';
-    $Run_rate = isset($message["livescore"]["runrate"]) ? $message["livescore"]["runrate"] : '';
-    $Batsman = isset($message["livescore"]["batsman"]) ? $message["livescore"]["batsman"] : '';
-    $Batsman_run = isset($message["livescore"]["batsmanrun"]) ? $message["livescore"]["batsmanrun"] : '';
-    $Bowler = isset($message["livescore"]["bowler"]) ? $message["livescore"]["bowler"] : '';
-    $Batsman_over = isset($message["livescore"]["bowlerover"]) ? $message["livescore"]["bowlerover"] : '';
+    $message = $body;
+    $score_title = isset($message["livescore"]["title"]) ? $message["livescore"]["title"] : 'Match Data Will be Updated Soon';
+    $score_Update = isset($message["livescore"]["update"]) ? $message["livescore"]["update"] : 'Data Will be Updated Soon';
+    $score_data = isset($message["livescore"]["current"]) ? $message["livescore"]["current"] : 'Data Will be Updated Soon';
+    $Run_rate = isset($message["livescore"]["runrate"]) ? $message["livescore"]["runrate"] : 'Data Will be Updated Soon';
+    $Batsman = isset($message["livescore"]["batsman"]) ? $message["livescore"]["batsman"] : 'Data Will be Updated Soon';
+    $Batsman_run = isset($message["livescore"]["batsmanrun"]) ? $message["livescore"]["batsmanrun"] : 'Data Will be Updated Soon';
+    $Bowler = isset($message["livescore"]["bowler"]) ? $message["livescore"]["bowler"] : 'Data Will be Updated Soon';
+    $Batsman_over = isset($message["livescore"]["bowlerover"]) ? $message["livescore"]["bowlerover"] : 'Data Will be Updated Soon';
     $scorecard ='
     <div class="table-score">
     <table>
@@ -156,7 +155,7 @@ function wpb_sancric_shortcode(){
     </tr>
     <tr>
     <th>Current ✊ Bowler</th>
-    <td>'.$Bowler.' - Over '.$Batsman_over.'</td>
+    <td>'.$Bowler.' - Overs '.$Batsman_over.'</td>
     </tr>
     </tbody>
     </table>
