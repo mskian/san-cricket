@@ -14,66 +14,7 @@
 add_action('wp_head','sanckt_css');
 function sanckt_css() {
 $output="<style>
-.table-score {
-  border-collapse: collapse;
-  margin: 0.5em 0 2.5em;
-  width: 100%;
-  table-layout: fixed;
-}
-.table-score tr {
-  border: 1px solid #ddd;
-  padding: 6px 12px;
-  color: #2d3436;
-}
-.table-score th,
-.table-score td {
-  font-size: 13px;
-}
-.table-score th {
-  font-size: 14px;
-  padding: 6px 12px;
-}
-@media screen and (max-width: 600px) {
-  .table-score {
-    border: 0;
-  }
-  .table-score caption {
-    font-size: 14px;
-  }
-  .table-score thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  .table-score tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-  }
-  .table-score td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: 14px;
-    text-align: right;
-  }
-  .table-score td::before {
-    /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  .table-score td:last-child {
-    border-bottom: 0;
-}
+.table-score{border-collapse:collapse;margin:.5em 0 2.5em;width:100%;table-layout:fixed}.table-score tr{border:1px solid #ddd;padding:6px 12px;color:#2d3436}.table-score th,.table-score td{font-size:13px}.table-score th{font-size:14px;padding:6px 12px}@media screen and (max-width: 600px){.table-score{border:0}.table-score caption{font-size:14px}.table-score thead{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.table-score tr{border-bottom:3px solid #ddd;display:block;margin-bottom:.625em}.table-score td{border-bottom:1px solid #ddd;display:block;font-size:14px;text-align:right}.table-score td::before{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase}.table-score td:last-child{border-bottom:0}}
 </style>";
 echo $output;
 }
@@ -92,7 +33,6 @@ function admin_menu_mmsancricket() {
 function options_page_mmsancricket() {
   include( plugin_dir_path( __FILE__ ) .'options.php');
 }
-
 
 ## Remove HTTP and HTTPS from URL
 function remove_http($url) {
@@ -142,7 +82,7 @@ function wpb_sancric_shortcode(){
     <td>'.$score_Update.'</td>
     </tr>
     <tr>
-    <th>Live 🔵</th>
+    <th>Live 🔴</th>
     <td>'.$score_data.'</td>
     </tr>
     <tr>
