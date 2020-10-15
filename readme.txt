@@ -59,3 +59,7 @@ Yes 100% Accurate - Our API is cached for 1min. Reload the page Every 1min to Vi
 = 1.0 =
 
 * Initial release
+
+= 1.1 =
+
+* Small Changes

@@ -3,7 +3,7 @@
 * Plugin Name: San Cricket
 * Plugin URI: https://santhoshveer.com/
 * Description: Display Live Cricket Score on your Wordpress site.
-* Version: 1.0
+* Version: 1.1
 * Author: Santhosh veer
 * Author URI: https://santhoshveer.com/
 * License: GPLv3
