@@ -1,11 +1,11 @@
 <?php
 /*
 * Plugin Name: San Cricket
-* Plugin URI: https://santhoshveer.com/
+* Plugin URI: https://github.com/mskian/san-cricket
 * Description: Display Live Cricket Score on your Wordpress site.
-* Version: 1.1
-* Author: Santhosh veer
-* Author URI: https://santhoshveer.com/
+* Version: 1.2
+* Author: Santhosh Veer
+* Author URI: https://github.com/mskian/san-cricket
 * License: GPLv3
 * License URI: http://www.gnu.org/licenses/gpl.html
 */
@@ -21,7 +21,7 @@ echo $output;
 
 ## Regsister user input
 function admin_init_mmsancricket() {
-  register_setting('sancric_mskc_topt', 'sancric_userapi_key');
+  register_setting('sancric_mskc_topt', 'sancric_livecric_url');
 }
 
 ## Setup Admin Page
@@ -34,31 +34,29 @@ function options_page_mmsancricket() {
   include( plugin_dir_path( __FILE__ ) .'options.php');
 }
 
-## Remove HTTP and HTTPS from URL
-function remove_http($url) {
-  $disallowed = array('http://', 'https://');
-  foreach($disallowed as $d) {
-     if(strpos($url, $d) === 0) {
-        return str_replace($d, '', $url);
-     }
-  }
-  return $url;
-}
-
-## API Auth and Get data
+## Get data
 function display_apii_response() {
-  $base_url = "https://cri.sanweb.info/cri/";
-  $api_path = get_option('sancric_userapi_key').'&domain=';
-  $site_url = remove_http(get_bloginfo('url'));
-  $url = $base_url.$api_path.$site_url;
+  $base_url = "https://cricket-api.vercel.app/cri.php?url=";
+  $api_path = get_option('sancric_livecric_url');
+  $url = $base_url.$api_path;
   $response = wp_remote_get($url);
+  if ( is_wp_error( $response ) ) {
+    return 'bad connection';
+  }
+  $json = $response['body'];
   global $body;
-  $body = json_decode( $response['body'], true );
+  $body = json_decode( $json, true );
 }
 add_action( 'init', 'display_apii_response' );
 
 ## Shortcode to Display Score
 function wpb_sancric_shortcode(){
+
+    ## Check Empty Input
+    if (empty(get_option('sancric_livecric_url'))) {
+    return '<p>Match URL Not Found</p>';
+    }
+
     global $body;
     $message = $body;
     $score_title = isset($message["livescore"]["title"]) ? $message["livescore"]["title"] : 'Match Data Will be Updated Soon';
@@ -74,24 +72,24 @@ function wpb_sancric_shortcode(){
     <table>
     <tbody>
     <tr>
-    <th>Match 🏏</th>
+    <th>🏏 Match</th>
     <td>'.$score_title.' </td>
     </tr>
     <tr>
-    <th>Status 📊</th>
+    <th>📊 Status</th>
     <td>'.$score_Update.'</td>
     </tr>
     <tr>
-    <th>Live 🔴</th>
+    <th>🔴 Live</th>
     <td>'.$score_data.'</td>
     </tr>
     <tr>
-    <th>Run rate 📉</th>
+    <th>📉 Run rate</th>
     <td>'.$Run_rate.'</td>
     </tr>
     <tr>
     <th>Current ✊ Batsman</th>
-    <td>'.$Batsman.' ('.$Batsman_run.')</td>
+    <td>'.$Batsman.' ('.$Batsman_run.' Runs)</td>
     </tr>
     <tr>
     <th>Current ✊ Bowler</th>
@@ -103,7 +101,6 @@ function wpb_sancric_shortcode(){
     return $scorecard;
   }
   add_shortcode('sancri', 'wpb_sancric_shortcode');
-
 
 ## init Admin
 if (is_admin()) {

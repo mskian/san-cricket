@@ -1,12 +1,12 @@
 ﻿=== San Cricket ===
 Contributors: worldfacts
-Tags: score,cricket,live score,api
-Requires at least: 4.0
+Tags: score,cricket,live score
+Requires at least: 4.6
+Requires PHP: 5.6
 Tested up to: 5.5
 Stable tag: trunk
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tested up to: 5.6
 
 Display Live Cricket Score on your Wordpress Site.
 
@@ -20,8 +20,6 @@ Just insert the Shortcode on Posts or pages or Widget - Done
 [sancri]
 ```
 
-PS: You need API Key to Activate this Plugin
-
 **Developer Help**
 
 - Follow the developer [@Twitter](https://twitter.com/santhoshveerece)
@@ -32,27 +30,21 @@ PS: You need API Key to Activate this Plugin
 1. Go to Plugins > Add New Plugin*, search for **San Cricket** and click "*Install now*"
 2. Alternative method, download the plugin and Upload the San Cricket folder to the /wp-content/plugins/directory
 3. Activate the plugin
-4. Now go to WordPress Dashboard -> Settings -> Plugin settings page.
-5. Enter your API Key and Start Displaying the Live Cricket Score
+4. Now go to WordPress Dashboard -> Settings -> Plugin settings page
+5. Enter Live Match URL and Start Displaying the Live Cricket Score
 6. That's it
 
 == Frequently Asked Questions ==
 
-= Where can I Get the Plugin API Key? =
-
-Just Fill the Form & Get API Key - Form Link Attached in the Plugin Option Panel
-
-
 = Score data are Accurate and Real-time? =
 
-Yes 100% Accurate - Our API is cached for 1min. Reload the page Every 1min to View Live data.
-
+Yes 100% Accurate - Real-time just Refresh the Page.
 
 == Screenshots ==
 
 1. Plugin Setting Page
 2. Add shortcode
-3. San Cricket on post
+3. Live Cricket Score
 
 == Changelog ==
 
@@ -63,3 +55,7 @@ Yes 100% Accurate - Our API is cached for 1min. Reload the page Every 1min to Vi
 = 1.1 =
 
 * Small Changes
+
+= 1.2 =
+
+* Revamp the Plguin
