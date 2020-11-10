@@ -5,7 +5,7 @@
 * Description: Display Live Cricket Score on your Wordpress site.
 * Version: 1.2
 * Author: Santhosh Veer
-* Author URI: https://github.com/mskian/san-cricket
+* Author URI: https://sanweb.info/
 * License: GPLv3
 * License URI: http://www.gnu.org/licenses/gpl.html
 */
